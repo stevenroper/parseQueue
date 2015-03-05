@@ -10,10 +10,16 @@
 		<button>Submit</button>
 	</form>
 
-	<div ng-repeat='question in questionsData'>
-		<h1>{{question.questionText}}</h1> - {{question.createdAt | date:"MMMM d, yyyy 'at' h:mm a"}}
+	<h1>Current Question Queue:</h1>
+	<div ng-repeat='question in questionsData | filter:"red"'>
+		{{question.questionText}} - {{question.createdAt | date:"MMMM d, yyyy 'at' h:mm a"}}
+		<button ng-click='changeStatus($index)'>Fix</button>
 	</div>
 	
+	<h1>Answered Questions</h1>
+	<div ng-repeat='question in questionsData | filter:"yellow"'>
+		{{question.questionText}} - {{question.createdAt | date:"MMMM d, yyyy 'at' h:mm a"}}
+	</div>
 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script src="./js/app.js"></script>

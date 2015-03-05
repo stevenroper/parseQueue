@@ -6,7 +6,10 @@ app.service('parseService', function($http, $q) {
 		return $http({
 			method: 'POST',
 			url: 'https://api.parse.com/1/classes/parseQ',
-			data: {questionText: question}
+			data: {
+				questionText: question,
+				status: 'red'
+			}
 		});
 	};
 
@@ -23,6 +26,14 @@ app.service('parseService', function($http, $q) {
 		});
 
 		return deferred.promise;
+	};
+
+	this.updateData = function(questionId, newStatus) {
+		return $http({
+			method: 'PUT',
+			url: 'https://api.parse.com/1/classes/parseQ/' + questionId,
+			data: {status: newStatus}
+		});
 	};
 
 });
