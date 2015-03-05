@@ -12,16 +12,20 @@ app.controller('MainController', function($scope, parseService) {
 	$scope.getParseData = function() {
 		parseService.getData().then(function(data) {
 			$scope.questionsData = data;
-			console.log($scope.questionsData);
+			//console.log($scope.questionsData);
 		});
 	};
 
 	$scope.getParseData();
 
-	$scope.changeStatus = function(index) {
-		// $scope.questionsData.push($scope.questionsData[index]);
-		// $scope.questionsData.splice(index, 1);
-		parseService.updateData($scope.questionsData[index].objectId, 'yellow').then(function(data) {
+	$scope.changeStatus = function(id) {
+		parseService.updateData(id, 'yellow').then(function(data) {
+			$scope.getParseData();
+		});
+	};
+
+	$scope.deleteQuestion = function(id) {
+		parseService.deleteData(id).then(function(data) {
 			$scope.getParseData();
 		});
 	};
