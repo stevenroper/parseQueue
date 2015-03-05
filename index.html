@@ -5,10 +5,14 @@
 </head>
 <body ng-controller='MainController'>
 
-	{{test}}
+	<form ng-submit='postData()'>
+		<input ng-model='questionText' placholder='Question'>
+		<button>Submit</button>
+	</form>
 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script src="./js/app.js"></script>
+	<script src="./js/defaultHeaders.js"></script>
 	<script src="./js/controllers/MainController.js"></script>
 	<script src="./js/services/parseService.js"></script>
 </body>
