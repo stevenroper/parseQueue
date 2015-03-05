@@ -1,10 +1,15 @@
 <DOCTYPE html>
-<html>
+<html ng-app='parseQ'>
 <head>
 	<title>ParseQ</title>
 </head>
-<body>
+<body ng-controller='MainController'>
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+	{{test}}
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/controllers/MainController.js"></script>
+	<script src="./js/services/parseService.js"></script>
 </body>
 </html>
